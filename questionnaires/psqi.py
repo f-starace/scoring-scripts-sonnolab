@@ -128,11 +128,11 @@ def calc_PSQI(row: pd.Series) -> pd.Series:
 
         if row.PSQI_04 < 5:
             comp3 = 3
-        elif row.PSQI_04 == 5:
+        elif row.PSQI_04 >= 5 and row.PSQI_04 < 6:
             comp3 = 2
-        elif row.PSQI_04 == 6:
+        elif row.PSQI_04 >= 6 and row.PSQI_04 < 7:
             comp3 = 1
-        else:
+        elif row.PSQI_04 >= 7:
             comp3 = 0
 
         # comp4 habitual sleep efficiency

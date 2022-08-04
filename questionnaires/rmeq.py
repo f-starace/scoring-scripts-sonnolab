@@ -42,10 +42,10 @@ def calc_RMEQ(row: pd.Series) -> pd.Series:
     }
 
     q5 = {
-        "Decisamente più attivo/a al mattino": 4,
-        "Un po’ più attivo/a la mattina rispetto alla sera": 3,
+        "Decisamente più attivo/a al mattino": 6,
+        "Un po’ più attivo/a la mattina rispetto alla sera": 4,
         "Un po’ più attivo/a la sera rispetto alla mattina": 2,
-        "Decisamente più attivo/a alla sera": 1,
+        "Decisamente più attivo/a alla sera": 0,
     }
 
     try:
