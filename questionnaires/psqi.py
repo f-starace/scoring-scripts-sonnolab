@@ -114,7 +114,10 @@ def calc_PSQI(row: pd.Series) -> pd.Series:
 
         # comp2 sleep latency
         sleep_lat = row.PSQI_02 + row.PSQI_05
-        if sleep_lat == 1 or sleep_lat == 2:
+
+        if sleep_lat == 0 :
+            comp2 = 0
+        elif sleep_lat == 1 or sleep_lat == 2:
             comp2 = 1
         elif sleep_lat == 3 or sleep_lat == 4:
             comp2 = 2
