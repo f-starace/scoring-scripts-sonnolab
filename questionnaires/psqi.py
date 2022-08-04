@@ -181,7 +181,7 @@ def calc_PSQI(row: pd.Series) -> pd.Series:
             comp7 = 0
         elif comp7_sum < 3:
             comp7 = 1
-        elif comp7_sum <= 5:
+        elif comp7_sum < 5:
             comp7 = 2
         else:
             comp7 = 3
