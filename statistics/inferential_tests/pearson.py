@@ -1,4 +1,6 @@
-
+import pandas as pd
+from scipy import stats
+from .types import InferentialTest
 
 def calc_pearson(
     quantitative_param1: pd.Series, quantitative_param2: pd.Series, alpha: float = 0.05
