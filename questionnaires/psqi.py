@@ -2,7 +2,7 @@
 import logging
 import pandas as pd
 import numpy as np
-from lib.handle_time import h_to_mins
+from .utils.handle_time import h_to_mins
 
 
 
@@ -44,12 +44,20 @@ def generic_PSQI(option: str) -> int:
 
 
 def calc_PSQI(row: pd.Series) -> pd.Series:
+    """Calculates the PSQI score
+    Args:
+        row (pd.Series): the row to analyze
+    """    
+    result_index = ["PSQI_COMP_1","PSQI_COMP_2","PSQI_COMP_3","PSQI_COMP_4","PSQI_COMP_5","PSQI_COMP_6","PSQI_COMP_7","PSQI_TOT","PSQI_CAT"]
+
     try:
         print(row.values.tolist())
         generic_cols = [
             col
             for col in row.index
-            if col
+            if col in [
+                "PSQI_06","PSQI_07", "PSQI_08", "PSQI_09", "PSQI_10", "PSQI_11", "PSQI_12", "PSQI_13", "PSQI_16", 
+            ]
             not in [
                 "PSQI_01",
                 "PSQI_02",
@@ -189,45 +197,24 @@ def calc_PSQI(row: pd.Series) -> pd.Series:
         total = comp1 + comp2 + comp3 + comp4 + comp5 + comp6 + comp7
         cat = "good sleeper" if total <= 5 else "poor sleeper"
 
+        # wrapping up the result together
+        result = [comp1, comp2, comp3, comp4, comp5, comp6, comp7, total, cat]
+
     except ValueError as e:
+        # handle value errors
         logging.error(e, exc_info=True)
-        comp1, comp2, comp3, comp4, comp5, comp6, comp7, total, cat = (
-            np.nan,
-            np.nan,
-            np.nan,
-            np.nan,
-            np.nan,
-            np.nan,
-            np.nan,
-            np.nan,
-            np.nan,
-        )
+        result = np.empty(9)
 
     except TypeError as e:
+        # handle type errors
         logging.error(e, exc_info=True)
-        comp1, comp2, comp3, comp4, comp5, comp6, comp7, total, cat = (
-            np.nan,
-            np.nan,
-            np.nan,
-            np.nan,
-            np.nan,
-            np.nan,
-            np.nan,
-            np.nan,
-            np.nan,
-        )
+        result = np.empty(9)
 
-    return pd.Series(
-        [comp1, comp2, comp3, comp4, comp5, comp6, comp7, total, cat],
-        index=[
-            "PSQI_COMP_1",
-            "PSQI_COMP_2",
-            "PSQI_COMP_3",
-            "PSQI_COMP_4",
-            "PSQI_COMP_5",
-            "PSQI_COMP_6",
-            "PSQI_COMP_7",
-            "PSQI_TOT",
-            "PSQI_CAT",
-        ],
-    )
+
+    finally:         
+        return pd.Series( result, index=result_index)
+
+
+
+if __name__ == '__main__':
+    pass
