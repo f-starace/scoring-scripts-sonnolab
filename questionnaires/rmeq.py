@@ -70,5 +70,5 @@ def calc_RMEQ(row: pd.Series) -> pd.Series:
     except KeyError as e:
         logging.error(e, exc_info=True)
         total, cat = np.nan, np.nan
-
-    return pd.Series([total, cat], index=["RMEQ_TOT", "RMEQ_CAT"])
+    finally:
+        return pd.Series([total, cat], index=["RMEQ_TOT", "RMEQ_CAT"])

@@ -6,6 +6,8 @@ import logging
 
 
 def calc_ESS(row: pd.Series) -> pd.Series:
+    """Calculates ESS total and category"""
+    results_index = ["ESS_total", "ESS_category"]
     try:
         total = row.sum()
 
@@ -15,8 +17,12 @@ def calc_ESS(row: pd.Series) -> pd.Series:
             cat = "medium sleepiness"
         else:
             cat = "abnormal sleepiness"
-        return pd.Series([total, cat], index=["ESS_TOTAL", "ESS_CAT"])
-
+        results = [total, cat]
+        
     except Exception as e:
         logging.error(e, exc_info=True)
-        return pd.Series([np.nan, np.nan], index=["ESS_TOTAL", "ESS_CAT"])
+        results = [np.nan, np.nan]
+
+    finally:
+        return pd.Series(results, index=results_index)
+

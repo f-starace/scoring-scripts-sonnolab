@@ -14,8 +14,10 @@ def calc_MIDAS(row: pd.Series) -> pd.Series:
             cat = "III"
         else:
             cat = "IV"
-        return pd.Series([total, cat], index=["MIDAS_TOTAL", "MIDAS_CAT"])
-
     except Exception as e:
         logging.error(e, exc_info=True)
-        return pd.Series([np.nan, np.nan], index=["MIDAS_TOTAL", "MIDAS_CAT"])
+
+    finally:
+        results = [total, cat]
+
+        return pd.Series([np.nan, np.nan], index=["MIDAS_TOT", "MIDAS_CAT"])

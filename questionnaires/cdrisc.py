@@ -6,7 +6,7 @@ from typing import Literal
 
 def calc_CDRISC(row: pd.Series, items_num: Literal[10]) -> pd.Series:
     try:
-        assert(items_num == 10)
+        assert items_num == 10
         if items_num == 10:
             score = calc_CDRISC_10(row)
     except Exception as e:

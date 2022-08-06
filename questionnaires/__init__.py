@@ -7,5 +7,4 @@ from .psqi import calc_PSQI
 from .rmeq import calc_RMEQ
 from .gts import calc_GTS
 from .tals import calc_TALS
-from .gad import calc_GAD
 

@@ -1,3 +1,4 @@
+import logging
 import pandas as pd
 import numpy as np
 
@@ -9,6 +10,8 @@ def calc_GTS(row: pd.Series) -> pd.Series:
             ),
             4,
         )
-    except:
+    except Exception as e:
+        logging.error(e, exc_info=True)
         score = np.nan
-    return pd.Series(score, index=["GTS_SCORE"])
+    finally:
+        return pd.Series(score, index=["GTS_SCORE"])
