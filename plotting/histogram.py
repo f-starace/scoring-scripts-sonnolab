@@ -4,10 +4,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 
+from plotting.types import PlotConfigOptions
 
 
-def histogram(df: pd.DataFrame, plot_config: dict) -> go.Figure:
-    x: str = plot_config["x"]
+
+def histogram(df: pd.DataFrame, plot_config: PlotConfigOptions) -> go.Figure:
+    x: str = plot_config.x
     bargap: Optional[float] = plot_config.get("bargap")
     color: Optional[str] = plot_config.get("color_col")
     marginal: Optional[Literal["box", "violin", "rug"]] = plot_config.get(
