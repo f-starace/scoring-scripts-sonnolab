@@ -8,7 +8,7 @@ from .types import InferentialTest
 def calc_ttest(
     qualitative_param: pd.Series, quantitative_param: pd.Series, alpha: float = 0.05
 ) -> Optional[dict]:
-    """Calculates T-test for two independent samples of scores (Parametric)
+    """Calculate T-test for two independent samples of scores (Parametric)
 
     Args:
         qualitative_param (pd.Series): A column containing categorical data

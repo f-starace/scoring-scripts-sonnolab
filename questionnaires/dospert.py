@@ -3,7 +3,7 @@ import numpy as np
 
 
 def calc_DOSPERT_F(row: pd.Series) -> pd.Series:
-    """Calculates the DOSPERT Financial domain
+    """Calculate the DOSPERT Financial domain
 
     Args:
         row (pd.Series): a row of the dataframe

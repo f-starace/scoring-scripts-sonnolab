@@ -4,7 +4,7 @@ import numpy as np
 
 
 def calc_MOODS(row: pd.Series) -> pd.Series:
-    """Returns MOODS total
+    """Return MOODS total
 
     Args:
         row (pd.Series)

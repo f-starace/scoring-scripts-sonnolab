@@ -7,7 +7,7 @@ from .types import InferentialTest
 def calc_spearman(
     quantitative_param1: pd.Series, quantitative_param2: pd.Series, alpha: float = 0.05
 ) -> InferentialTest:
-    """Applies Spearson Test for two quantitative params (Non Parametric Test)
+    """Apply Spearson Test for two quantitative params (Non Parametric Test)
 
     Args:
         quantitative_param1 (pd.Series): A column containing numbers

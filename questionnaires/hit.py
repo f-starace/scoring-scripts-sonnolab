@@ -9,7 +9,7 @@ HIT_DTC = {"Mai": 6, "Raramente": 8, "Qualche volta": 10, "Molto spesso": 11, "S
 # TODO: prepare for multiple item types
 
 def calc_HIT6(row: pd.Series) -> pd.Series:
-    """Returns HIT6 total"""
+    """Return HIT6 total"""
 
     try:
         row = row.apply(lambda item: HIT_DTC[item])

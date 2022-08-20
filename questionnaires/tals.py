@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 def calc_TALS(row: pd.Series) -> pd.Series:
-    """Returns TALS score
+    """Return TALS score
 
     Args:
         row (pd.Series)

@@ -9,7 +9,7 @@ def calc_fisher_exact(
     alpha: float = 0.05,
     alternative: str = "two-sided",
 ) -> Optional[dict]:
-    """Applies FisherExact for 2x2 Contingency table (Parametric test)
+    """Apply FisherExact for 2x2 Contingency table (Parametric test)
 
     Args:
         qualitative_param1 (pd.Series): A column containing categorical data

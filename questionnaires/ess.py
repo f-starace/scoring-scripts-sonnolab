@@ -6,7 +6,7 @@ import logging
 
 
 def calc_ESS(row: pd.Series) -> pd.Series:
-    """Calculates ESS total and category"""
+    """Calculate ESS total and category"""
     results_index = ["ESS_total", "ESS_category"]
     try:
         total = row.sum()
